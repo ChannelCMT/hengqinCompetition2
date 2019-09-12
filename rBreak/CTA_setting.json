@@ -1,0 +1,18 @@
+[{
+    "timeframeMap" :
+    {"signalPeriod":"30m", 
+        "filterPeriod": "30m"},
+
+    "lot": 150,
+    "orderTime":4,
+    "totalSecond" :30,
+    "stepSecond": 5,
+
+    "rangePeriod": 12,
+    "breakPct": 0.2,
+    
+    "observedPct": 0.3,
+    "reversedPct": 0.1,
+
+    "sigPeriod": 16
+}]

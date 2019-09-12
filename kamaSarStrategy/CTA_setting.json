@@ -1,0 +1,23 @@
+[{
+    "timeframeMap" :
+    {"signalPeriod":"15m", 
+        "filterPeriod": "15m"},
+
+    "lot": 150,
+    "orderTime":4,
+    "totalSecond" :30,
+    "stepSecond": 5,
+
+    "kamaPeriod":50,
+    "smaPeriod": 30,
+    "kamaFastest": 12,
+    "kamaSlowest": 50,
+
+    "sarAcceleration": 0.0002,
+
+    "dsPeriod": 60,
+    "dsThreshold":0.16,
+    "dsSmaPeriod":30,
+    "dsLmaPeriod":70
+
+}]
