@@ -1,0 +1,12 @@
+[{
+    "timeframeMap" :
+    {"signalPeriod":"15m", 
+        "filterPeriod": "15m"},
+
+    "lot": 150,
+    "orderTime":4,
+    "totalSecond" :30,
+    "stepSecond": 5,
+
+    "maPeriod": 30
+}]

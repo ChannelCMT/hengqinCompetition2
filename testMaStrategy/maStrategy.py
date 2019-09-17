@@ -4,15 +4,15 @@ import talib as ta
 from datetime import timedelta, datetime
 from vnpy.trader.utils.templates.orderTemplate import * 
 from vnpy.trader.app.ctaStrategy import ctaBase
-from kamaSarClass import kamaSarSignal
+from maClass import maSignal
 
 
 ########################################################################
-class kamaSarStrategy(OrderTemplate):
-    className = 'kamaSarStrategy'
+class maStrategy(OrderTemplate):
+    className = 'maTestStrategy'
     author = 'ChannelCMT'
 
-    CUSTOM_ATTRS = {"orderDict", "lastBarTimeDict"}
+    CUSTOM_ATTRS = {"orderDict"}
 
     # 参数列表，保存了参数的名称
     paramList = [
@@ -21,13 +21,7 @@ class kamaSarStrategy(OrderTemplate):
                  # 品种列表
                  'symbolList',
                  # signalParameter 计算信号的参数
-                 'sarAcceleration',
-                 'kamaPeriod', 'kamaFastest', "kamaSlowest",
-                 'smaPeriod',
-                 # 低波动率过滤阈值
-                 'volPeriod', 'lowVolThreshold',
-                 # 可加仓的次数
-                 'posTime',
+                 'maPeriod', 
                  # 时间周期
                  'timeframeMap',
                 #  总秒，间隔，下单次数
@@ -47,22 +41,12 @@ class kamaSarStrategy(OrderTemplate):
         self.paraDict = setting
         self.barPeriod = 200
         self.symbol = self.symbolList[0]
-        self.lastBarTimeDict = {frameStr: datetime(2010,1,1) for frameStr in list(set(self.timeframeMap.values()))}
-        self.algorithm = kamaSarSignal()
-        self.kamaDirection = 0
+        self.algorithm = maSignal()
 
         # varialbes
         self.orderDict = {'orderLongSet':set(), 'orderShortSet': set()}
         # 打印全局信号的字典
         self.globalStatus = {}
-        self.chartLog = {
-                        'datetime':[],
-                        'sar': [],
-                        'kama':[],
-                        'sma':[],
-                        'dsSma':[],
-                        'dsLma':[]
-                        }
     
     def prepare_data(self):
         for timeframe in list(set(self.timeframeMap.values())):
@@ -118,14 +102,7 @@ class kamaSarStrategy(OrderTemplate):
             pos+= (holdVolume-closedVolume)
         return pos
     
-    # 实盘在5sBar中洗价
-    def on5sBar(self, bar):
-        self.checkOnPeriodStart(bar)
-        self.checkOnPeriodEnd(bar)
-        for idSet in self.orderDict.values():
-            self.delOrderID(idSet)
-
-    def onBar(self, bar):
+    def on5MinBar(self, bar):
         # 必须继承父类方法
         super().onBar(bar)
         # on bar下触发回测洗价逻辑
@@ -134,17 +111,16 @@ class kamaSarStrategy(OrderTemplate):
             # 定时控制，开始
             self.checkOnPeriodStart(bar)
             # 回测时的下单手数按此方法调整
-            self.lot = int(200000 / bar.close)
+            self.lot = int(100000000/ bar.close)
         # 定时清除已出场的单
             self.checkOnPeriodStart(bar)
             self.checkOnPeriodEnd(bar)
-
             for idSet in self.orderDict.values():
                 self.delOrderID(idSet)
             # 执行策略逻辑
             self.strategy(bar)
 
-    def on5MinBar(self, bar):
+    def on15MinBar(self, bar):
         engineType = self.getEngineType()  # 判断engine模式
         if engineType != 'backtesting':
             self.writeCtaLog('globalStatus%s'%(self.globalStatus))
@@ -153,14 +129,13 @@ class kamaSarStrategy(OrderTemplate):
             pass
     def strategy(self, bar):
         signalPeriod= self.timeframeMap["signalPeriod"]
-        filterPeriod= self.timeframeMap["filterPeriod"]
 
         # 根据出场信号出场
         exitSig = self.exitSignal(signalPeriod)
         self.exitOrder(exitSig)
 
         # 根据进场信号进场
-        entrySig = self.entrySignal(filterPeriod, signalPeriod)
+        entrySig = self.entrySignal(signalPeriod)
         self.entryOrder(bar, entrySig)
 
     def exitSignal(self, signalPeriod):
@@ -168,10 +143,10 @@ class kamaSarStrategy(OrderTemplate):
         arrayPrepared, amSignal = self.arrayPrepared(signalPeriod)
 
         if arrayPrepared:
-            signalDirection, _ = self.algorithm.sarSignal(amSignal, self.paraDict)
-            if signalDirection==-1:
+            ma = self.algorithm.maSignal(amSignal, self.paraDict)
+            if amSignal.close<ma[-1]:
                 exitSignal = 1
-            elif signalDirection==1:
+            elif amSignal.close>ma[-1]:
                 exitSignal = -1
         return exitSignal
     
@@ -185,36 +160,15 @@ class kamaSarStrategy(OrderTemplate):
                 op = self._orderPacks[orderID]
                 self.composoryClose(op)
 
-    def entrySignal(self, filterPeriod, signalPeriod):
+    def entrySignal(self, signalPeriod):
         entrySignal = 0
         arrayPrepared, amSignal = self.arrayPrepared(signalPeriod)
-        amSignalDatetime = datetime.strptime(amSignal.datetime[-1], "%Y%m%d %H:%M:%S")
 
         if arrayPrepared:
-            if amSignalDatetime>self.lastBarTimeDict[signalPeriod]:
-                self.kamaDirection, kama, sma = self.algorithm.kamaSignal(amSignal, self.paraDict)
-                self.lastBarTimeDict[signalPeriod] = amSignalDatetime
-                signalDirection, sar = self.algorithm.sarSignal(amSignal, self.paraDict)
-                preferTrade, canTrade, dsSma, dsLma =  self.algorithm.dsEnv(amSignal, self.paraDict)
-                
-                self.globalStatus['signalDirection'] = signalDirection
-                self.chartLog['datetime'].append(datetime.strptime(amSignal.datetime[-1], "%Y%m%d %H:%M:%S"))
-                self.chartLog['sar'].append(sar[-1])
-                self.chartLog['kama'].append(kama)
-                self.chartLog['sma'].append(sma)
-                self.chartLog['dsSma'].append(dsSma[-1])
-                self.chartLog['dsLma'].append(dsLma[-1])
-
-                if preferTrade:
-                    if (signalDirection==1):
-                        entrySignal = 1
-                    elif (signalDirection==-1):
-                        entrySignal = -1
-                if canTrade:
-                    if (signalDirection==1) and (self.kamaDirection==1):
-                        entrySignal = 1
-                    elif (signalDirection==-1) and (self.kamaDirection==-1):
-                        entrySignal = -1
+            if amSignal.close>ma[-1]:
+                entrySignal = 1
+            elif amSignal.close<ma[-1]:
+                entrySignal = -1
         return entrySignal
 
     def entryOrder(self, bar, entrySignal):
