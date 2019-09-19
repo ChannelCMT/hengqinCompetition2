@@ -1,4 +1,8 @@
 [{
+    "symbolList":["IF:SIM"],
+    "name": "rBreakStrategy",
+    "className":"rBreakStrategy",
+    
     "timeframeMap" :
     {"signalPeriod":"30m", 
         "filterPeriod": "30m"},

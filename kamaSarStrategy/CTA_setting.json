@@ -1,4 +1,8 @@
 [{
+    "symbolList":["IF:SIM"],
+    "name": "kamaSarStrategy",
+    "className":"kamaSarStrategy",
+    
     "timeframeMap" :
     {"signalPeriod":"15m", 
         "filterPeriod": "15m"},

@@ -1,8 +1,10 @@
 [{
+    "symbolList":["RB:SIM"],
+    "name": "maStrategy",
+    "className":"maStrategy",
     "timeframeMap" :
     {"signalPeriod":"5m", 
         "filterPeriod": "5m"},
-
     "lot": 150,
     "orderTime":4,
     "totalSecond" :30,
