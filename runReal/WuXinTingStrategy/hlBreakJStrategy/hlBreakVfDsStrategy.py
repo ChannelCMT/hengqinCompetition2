@@ -123,7 +123,7 @@ class hlBreakVfDsStrategy(OrderTemplate):
     def on5MinBar(self, bar):
         # 必须继承父类方法
         super().onBar(bar)
-        self.lot = int(10000000/(bar.close*30)*0.7*0.5)
+        self.lot = int(10000000/(bar.close*30)*0.6*0.5)
         # on bar下触发回测洗价逻辑
         self.checkOnPeriodStart(bar)
         # 定时清除已出场的单
