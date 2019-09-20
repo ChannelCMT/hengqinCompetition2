@@ -39,7 +39,7 @@ def run_strategy():
 def test(path, sid):
     import os
     import importlib
-    os.environ["STRATEGY_ID"]
+    os.environ["STRATEGY_ID"] = sid
     path = os.path.abspath(path)
     os.chdir(path)
     sys.path.append(path)

@@ -121,8 +121,6 @@ class KMAStrategy(CtaTemplate):
             self.entryOrder(bar, entrySig, atr)
             print('entrySig: ', entrySig)
 
-
-
     def on5MinBar(self, bar):
         self.lot = int(100000000/(bar.close*100*0.05)*0.7)
         self.strategy(bar)
