@@ -1,0 +1,27 @@
+[{
+    "symbolList": ["CU:CTP"],
+    "name": "turningPointStrategy",
+    "className": "TurningPointStrategy",
+    "timeframeMap" :
+    {"envPeriod": "60m", "exitPeriod": "60m", "addPeriod": "60m"},
+
+    "barPeriod" : 150,
+    "envPeriod": 100,
+
+    "nBar": 8,
+    "base_range": 0.0,
+    "back_range": -0.003,
+
+    "ma_period": 3,
+    "sp_length": 9,
+    "profit_r": 1.1,
+    "loss_r": 1,
+    "change_r1": 0.2,
+    "change_r2": 0.1,
+    "dif_r1": 0.8,
+    "dif_r2": 1,
+
+    "posTime":1,
+    "addPct": 0.005
+}
+]

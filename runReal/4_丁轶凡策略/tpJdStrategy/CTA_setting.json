@@ -1,0 +1,27 @@
+[{
+    "symbolList": ["JD:CTP"],
+    "name": "turningPointStrategy",
+    "className": "TurningPointStrategy",
+    "timeframeMap" :
+    {"envPeriod": "60m", "exitPeriod": "60m", "addPeriod": "60m"},
+
+    "barPeriod" : 150,
+    "envPeriod": 100,
+
+    "back_range": -0.003,
+
+    "ma_period": 5,
+    "sp_length": 4,
+    "profit_r": 1,
+    "loss_r": 0.9,
+    "change_r1": 0.1,
+    "change_r2": 0.2,
+    "dif_r1": 0.5,
+    "dif_r2": 0.9,
+
+    "lot" :10,
+
+    "posTime":1,
+    "addPct": 0.005
+}
+]

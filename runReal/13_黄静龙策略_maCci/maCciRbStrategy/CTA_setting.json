@@ -1,0 +1,27 @@
+[{
+    "symbolList": ["RB:CTP"],
+    "name": "cciStrategy",
+    "className": "cciStrategy",
+
+    "timeframeMap" :
+    {"signalPeriod":"30m", 
+        "filterPeriod": "15m"},
+
+    "lot": 150,
+    "orderTime":4,
+    "totalSecond" :30,
+    "stepSecond": 5,
+    "maPeriod": 120,
+
+    "cciPeriod": 140,
+    "observedCci": 95,
+    "reversedCci": 90,
+    "breakCci": 110,
+    
+    "tbThreshold": 225,
+    "sigPeriod": 3,
+    "modifyPct":0.62,
+
+    "volPeriod":60,
+    "lowVolThreshold":0.001
+}]

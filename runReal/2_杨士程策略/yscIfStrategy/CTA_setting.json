@@ -1,0 +1,40 @@
+[{
+    "name":"strategy",
+    "className": "SimpleStrategy",
+    "symbolList": ["IF:CTP"],
+
+    "timeframeMap" :
+    {"signalPeriod": "15m"},
+
+    "barPeriod" : 150,
+
+    "Env_trend_period": 30,
+    "Env_trend_value": 0.5,
+
+    "trend_condition_period": 25,
+    "EfficiencyRation_threshold": 0.5,
+
+    "BOLL_MID_MA_strend": 50,
+    "BOLL_SD_strend": 27,
+    
+    "BOLL_MID_MA_wtrend": 40,
+    "BOLL_SD_wtrend": 22,
+    "ATR_period": 14,
+    "ATR_threshold": 4,
+    "ROC_Period": 65,
+    "ROC_MA_Period": 70,
+
+    "BOLL_MID_MA_ntrend": 30,
+    "BOLL_SD_ntrend": 24,
+    "MA_Short_period": 50,
+    "MA_Long_period": 60,
+    "ntrend_Stop_Time": 6,
+
+    "Capital": 500000,
+    "lot" : 0.4,
+    "wlot" : 0.3,
+    "addTime": 1,
+    "addlot": 0.1,
+    "addPre": 0.04
+}
+]

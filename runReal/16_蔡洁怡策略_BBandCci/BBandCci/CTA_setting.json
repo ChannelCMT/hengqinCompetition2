@@ -1,0 +1,26 @@
+[{
+    "symbolList": ["IF:CTP"],
+    "name": "BBandCciStrategy",
+    "className": "BBandCciStrategy",
+    "totalCapital":10,
+    "posWeight": 1,
+    "pctPerTrade":1,
+    "palValue": 100,
+
+    "orderTime":4,
+    "totalSecond" :30,
+    "stepSecond": 5,
+
+    "timeframeMap":
+    {"signalPeriod":"15m"},
+
+    "bandPeriod": 120,
+    "bBandEntry": 6,
+    "limitPeriod": 30,
+    "atrTime": 12,
+    "cciThreshold": 125,
+
+    "bPctThreshold": 60,
+    "bandWidthThreshold": 0.25,
+    "bandFilterThreshold": 0.08
+}]

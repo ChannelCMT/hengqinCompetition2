@@ -1,0 +1,21 @@
+[{
+    "name": "KMAStrategy",
+    "className": "KMAStrategy",
+    "timeframeMap" :
+    {"signalPeriod": "30m"},
+
+    "symbolList": ["J:CTP"],
+    "barPeriod" : 300,
+
+    "atrPeriod":30,
+    
+    "fastPeriod": 20,
+    "slowPeriod": 40,
+    "slowPeriod2":  70,
+
+    "channelPeriod": 100,
+
+    "stopAtrTimes": 4,
+    "stopRevTimes": 4
+}
+]

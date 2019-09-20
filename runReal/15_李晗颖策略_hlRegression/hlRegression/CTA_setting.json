@@ -1,0 +1,18 @@
+[{
+    "symbolList": ["IF:CTP"],
+    "name": "hlRegressionStrategy",
+    "className": "hlRegressionStrategy",
+    
+    "timeframeMap" :
+    {"signalPeriod":"15m", 
+        "filterPeriod": "5m"},
+
+    "regPeriod": 240,
+    "zScorePeriod": 200,
+    "rsrsThreshold": 2,
+    "corPeriod": 70,
+    "corThreshold": 0.07,
+
+    "volPeriod": 60,
+    "lowVolThreshold":0.001
+}]

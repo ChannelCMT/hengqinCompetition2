@@ -1,0 +1,51 @@
+[{
+    "name":"hlBreakStrategyCtp",
+    "className": "hlBreakStrategy",
+    "symbolList": ["IF:CTP"],
+
+    "orderTime":4,
+    "totalSecond" :30,
+    "stepSecond": 5,
+    
+    "timeframeMap" :
+    {"signalPeriod":"15m"},
+
+    "hlEntryPeriod": 280,
+    "hlExitPeriod": 60,
+    "AtrPeriod":60,
+    "atrLevel":18,
+
+    "cmiPeriod":336,    
+    "cmiThreshold":20,
+    "fastPeriod":2,
+    "slowPeriod":590,
+    "largePeriod":1200,
+
+    "rsiPeriod": 200,
+
+    "hlPeriod": 280,
+    "delayPeriod": 70,
+
+    "keltnerentrywindow": 10, 
+    "keltnerexitwindow": 80,
+    "keltnerentrydev": 1.5,
+    "keltnerexitdev": 2,
+    "trendPeriod":3,
+    "trendExitPeriod":25,
+    "csdev1":1,
+    "csdev2":1.5,
+    "bandAtr":25,
+
+    "dsPeriod": 150,
+    "dsSmaPeriod":60,
+    "dsLmaPeriod": 150,
+    "dsThreshold": 0.16,
+    "bandTime": 1.2,
+    
+    "holdDay": 24,
+    "expectReturn": 0.006,
+
+    "addPct": 0.001,
+    "posTime": 4,
+    "addLotTime": 3
+}]

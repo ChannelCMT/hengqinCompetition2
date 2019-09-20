@@ -1,0 +1,19 @@
+[{
+    "symbolList" : ["IF:CTP"],
+    "name": "myStrategy",
+    "className":"myStrategy",
+    
+    "timeframeMap" :
+    {"signalPeriod": "15m"},
+    "barPeriod":300,
+    "macdPeriod" : 12,
+    "macdsignalPeriod" : 26,
+    "macdhistPeriod" : 9,
+
+    "atrPeriod" : 24,
+
+    "stopwinPeriod" : 12,
+    "stopAtrTime" : 1.5,
+    "posTime" : 6,
+    "addPct" : 0.01
+}]

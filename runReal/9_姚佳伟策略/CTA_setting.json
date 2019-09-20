@@ -1,0 +1,37 @@
+[{
+    "symbolList": ["IF:CTP"],
+    "name": "JarvisStrategy",
+    "className": "JarvisStrategy",
+    "timeframeMap" :
+    {"signalPeriod": "25m"},
+
+    "barPeriod" : 150,
+    "timeperiod" : 30,
+    "fastperiod": 12,
+    "slowperiod": 27, 
+    "signalperiod": 7,
+    "adxPeriod":14,
+    "BBandPeriod":38,
+    "emaPeriod1":49,
+    "fastk_period":18,
+    "slowk_period":7,
+    "slowk_matype":0,
+    "slowd_period":5,
+    "slowd_matype":0,
+
+    "atrPeriod": 60,
+    "smallAtrTime": 2.6,
+    "bigAtrTime": 3,
+    "stopAtrTime": 2,
+
+    "hlMaPeriod": 63,
+    "maPeriod": 73,
+
+    "lowVolThreshold": 0.003,
+
+    "posTime":1,
+    "addPct": 0.01,
+
+    "lot" :10
+}
+]

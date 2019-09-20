@@ -1,0 +1,17 @@
+[{
+    "symbolList"  : ["IF:CTP"],
+    "name": "Price_VolumeStrategy",
+    "className": "Price_VolumeStrategy",
+    "timeframeMap":
+    {"signalPeriod": "240m"},
+
+    "barPeriod"   : 150,
+    "PERIOD"      : 5,
+    "STDUP"       : 1,
+    "STDDN"       : 1,
+    "stoplossPct" : 0.05,
+    "lot"         : 10,
+    "posTime"     : 1,
+    "addPct"      : 0.01
+}
+]

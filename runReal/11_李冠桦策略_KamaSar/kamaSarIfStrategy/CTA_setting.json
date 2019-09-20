@@ -1,0 +1,26 @@
+[{
+    "symbolList": ["IF:CTP"],
+    "name": "kamaSarStrategy",
+    "className": "kamaSarStrategy",
+    "timeframeMap" :
+    {"signalPeriod":"15m", 
+        "filterPeriod": "15m"},
+
+    "lot": 150,
+    "orderTime":4,
+    "totalSecond" :30,
+    "stepSecond": 5,
+
+    "kamaPeriod":50,
+    "smaPeriod": 20,
+    "kamaFastest": 10,
+    "kamaSlowest": 60,
+
+    "sarAcceleration": 0.001,
+
+    "dsPeriod": 50,
+    "dsThreshold":0.14,
+    "dsSmaPeriod":20,
+    "dsLmaPeriod":50
+
+}]

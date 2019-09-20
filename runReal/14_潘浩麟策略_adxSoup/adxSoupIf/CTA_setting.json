@@ -1,0 +1,31 @@
+[{
+  "symbolList": ["IF:CTP"],
+  "name": "adxSoupStrategy",
+  "className": "adxSoupStrategy",
+
+  "orderTime":4,
+  "totalSecond" :30,
+  "stepSecond": 5,
+  
+  "timeframeMap" :
+  { 
+    "trendPeriod":"30m", "signalPeriod":"15m", "tradePeriod": "5m"
+  },
+  
+  "adxPeriod" : 40,
+  "adxMaPeriod": 20,
+  "adxThreshold": 28,
+
+  "hlPeriod": 150,
+  "hlExitPeriod": 150,
+  "distanceMin": 100,
+  "distanceMax": 350,
+
+  "dangerousMinPct": 0.006,
+  "dangerousMaxPct": 0.06,
+
+  "clipPct": 10,
+  "pctPeriod": 720,
+  "hourCount": 15,
+  "stopControlMin":10
+}]
