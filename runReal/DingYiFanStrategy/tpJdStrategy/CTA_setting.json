@@ -1,5 +1,5 @@
 [{
-    "symbolList": ["JD:CTP"],
+    "symbolList": ["JD:SIM"],
     "name": "turningPointStrategy",
     "className": "TurningPointStrategy",
     "timeframeMap" :

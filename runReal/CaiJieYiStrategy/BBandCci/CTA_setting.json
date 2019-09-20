@@ -1,5 +1,5 @@
 [{
-    "symbolList": ["IF:CTP"],
+    "symbolList": ["IF:SIM"],
     "name": "BBandCciStrategy",
     "className": "BBandCciStrategy",
     "totalCapital":10,

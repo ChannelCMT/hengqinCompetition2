@@ -1,5 +1,5 @@
 [{
-    "symbolList": ["CU:CTP"],
+    "symbolList": ["CU:SIM"],
     "name": "turningPointStrategy",
     "className": "TurningPointStrategy",
     "timeframeMap" :

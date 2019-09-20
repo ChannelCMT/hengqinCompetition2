@@ -1,7 +1,7 @@
 [{
     "name":"hlBreakStrategyCtp",
     "className": "hlBreakStrategy",
-    "symbolList": ["IF:CTP"],
+    "symbolList": ["IF:SIM"],
 
     "orderTime":4,
     "totalSecond" :30,

@@ -1,7 +1,7 @@
 [{
     "name":"strategy",
     "className": "SimpleStrategy",
-    "symbolList": ["RB:CTP"],
+    "symbolList": ["RB:SIM"],
 
     "timeframeMap" :
     {"signalPeriod": "15m"},

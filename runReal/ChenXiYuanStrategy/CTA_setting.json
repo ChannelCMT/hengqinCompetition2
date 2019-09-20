@@ -4,7 +4,7 @@
     "timeframeMap" :
     {"signalPeriod": "30m"},
 
-    "symbolList": ["J:CTP"],
+    "symbolList": ["J:SIM"],
     "barPeriod" : 300,
 
     "atrPeriod":30,
