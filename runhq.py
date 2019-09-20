@@ -36,9 +36,10 @@ def run_strategy():
     cta.startAll()
 
 
-def test(path):
+def test(path, sid):
     import os
     import importlib
+    os.environ["STRATEGY_ID"]
     path = os.path.abspath(path)
     os.chdir(path)
     sys.path.append(path)
@@ -48,4 +49,5 @@ def test(path):
 if __name__ == "__main__":
     import sys
     path = sys.argv[1]
-    test(path)
+    sid = sys.argv[2]
+    test(path, sid)
