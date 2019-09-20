@@ -5,6 +5,7 @@ from vnpy.trader.vtConstant import *
 from vnpy.trader.app.ctaStrategy import CtaTemplate
 import talib as ta
 from datetime import datetime
+import numpy as np
 from turningPointSignal import tpSignal
 
 ########################################################################
@@ -41,9 +42,6 @@ class TurningPointStrategy(CtaTemplate):
                  'dif_r1',
                  'dif_r2',
 
-                 # 交易手数
-                 'lot',
-
                  'posTime',
                  'addPct'
                 ]    
@@ -60,7 +58,7 @@ class TurningPointStrategy(CtaTemplate):
         super().__init__(ctaEngine, setting)
         self.paraDict = setting
         self.symbol = self.symbolList[0]
-
+        self.lot = 0
         self.chartLog = {
                 'datetime':[],
                 'close':[],
@@ -120,7 +118,6 @@ class TurningPointStrategy(CtaTemplate):
         envPeriod= self.timeframeMap["envPeriod"]
         exitPeriod= self.timeframeMap["exitPeriod"]
         addPeriod= self.timeframeMap["addPeriod"]
-        
         # 根据进场信号进场
         if self.posDict[self.symbol+'_LONG']==0 and self.posDict[self.symbol+'_SHORT']==0:
             entrySig, out_po = self.entrySignal(envPeriod)
@@ -144,8 +141,14 @@ class TurningPointStrategy(CtaTemplate):
         # 亏损加仓
         # self.addPosOrder2(bar)
 
+    def onBar(self, bar):
+        pass
+
     def on5MinBar(self, bar):
+        self.lot = int(100000000/(bar.close*5*0.09)*0.7*0.25)
         self.strategy(bar)
+        self.writeCtaLog('posDict:%s'%(self.posDict))
+        print('posDict:', self.posDict)
 
     def exitSignal(self, exitPeriod, ot_pos):
         arrayPrepared, am = self.arrayPrepared(exitPeriod)
@@ -208,6 +211,7 @@ class TurningPointStrategy(CtaTemplate):
     def entrySignal(self, envPeriod):
         arrayPrepared, amEnv = self.arrayPrepared(envPeriod)
         entrySignal = 0
+        ot_pos = np.array([0])
         if arrayPrepared:
             algorithm = tpSignal()
             # 多头返回的list [1, 止损低点, 理论买入价, 期望止盈幅度, True, count]

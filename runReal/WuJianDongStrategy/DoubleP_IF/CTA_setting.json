@@ -1,0 +1,40 @@
+[{
+    "symbolList": ["IF:SIM"],
+    "name": "DoublePeriodStrategy_v5",
+    "className": "DoublePeriodStrategy", 
+    
+    "envPeriod": "120m", 
+    "signalPeriod": "10m",
+    "signal5min": "5m",
+    "capitalRatio":0.4,
+
+    "fastPeriod": 20,
+    "fast_slow": 2,
+    "EmaFastPeriod": 24, 
+    "EmaFast_Slow": 2,
+
+    "atrPeriod": 9,
+    "stdLongTimes": 1,
+    "stdShortTimes": 1,
+    "stdHighTimes": 2.5,
+    "close_atrPeriod": 0.2,
+
+    "er_atrPeriod": 1,
+    "erMaPeriod": 3,
+    "erThreshold_low": 0.5,
+    "erThreshold_high": 0.75,
+    
+    "expectReturn": 0.015,
+    "takeProfitLotRatio": 1,
+    "stopLossPct": 0.01,
+    "stoplossPeriod" : 15,
+
+    "addPct": 0.02,
+    "posTime": 1,
+    "addLotTime": 1,
+
+    "lot":1,
+    "orderTime":4,
+    "totalSecond" :30,
+    "stepSecond": 5
+}]

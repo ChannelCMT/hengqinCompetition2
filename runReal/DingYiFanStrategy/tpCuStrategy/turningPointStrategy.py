@@ -142,6 +142,9 @@ class TurningPointStrategy(CtaTemplate):
         # self.addPosOrder2(bar)
 
     def onBar(self, bar):
+        pass
+
+    def on5MinBar(self, bar):
         self.lot = int(100000000/(bar.close*5*0.09)*0.7*0.25)
         self.strategy(bar)
         self.writeCtaLog('posDict:%s'%(self.posDict))

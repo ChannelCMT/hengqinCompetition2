@@ -78,6 +78,7 @@ class myStrategy(CtaTemplate):
         else:
             return False
 
+    # def onBar(self, bar):
     def on5MinBar(self, bar):
         self.lot = int(100000000/(bar.close)*0.7)
         self.writeCtaLog('posDict:%s'%(self.posDict))
