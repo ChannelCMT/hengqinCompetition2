@@ -24,10 +24,7 @@ def run_strategy():
     # ee.register(EVENT_CTA_LOG, le.processLogEvent)
     me.connect(gateway.gatewayName)
     gw = me.getGateway(gateway.gatewayName)
-    gw.start_date = datetime(2019, 9, 19, 9)
-    # gw.end_date = datetime(2019, 9, 19, 12)
-    # gw.start_date = datetime(2019, 9, 19, 12, 30)
-    gw.end_date = datetime.now()
+
     cta = me.getApp(ctaStrategy.appName)
     cta.settingfilePath = "CTA_setting.json"
     
