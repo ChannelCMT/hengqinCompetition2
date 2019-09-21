@@ -132,7 +132,7 @@ class kamaSarStrategy(OrderTemplate):
         super().onBar(bar)
         # on bar下触发回测洗价逻辑
         # 回测时的下单手数按此方法调整
-        self.lot = int(10000000/(bar.close*30)*0.7)
+        self.lot = int(10000000/(bar.close*30)*0.6*0.5)
         self.checkOnPeriodStart(bar)
         self.checkOnPeriodEnd(bar)
         for idSet in self.orderDict.values():

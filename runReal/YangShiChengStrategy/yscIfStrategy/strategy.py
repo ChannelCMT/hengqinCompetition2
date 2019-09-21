@@ -167,8 +167,8 @@ class SimpleStrategy(CtaTemplate):
             #self.chartLog['datetime'].append(datetime.strptime(am15.datetime[-1], "%Y%m%d %H:%M:%S"))
                     
     def on5MinBar(self, bar):
-        self.lot = int(100000000/(bar.close*30)*0.7*0.4)
-        self.wlot = int(100000000/(bar.close*30)*0.7*0.3)
+        self.lot = int(10000000/(bar.close*30)*0.7*0.4)
+        self.wlot = int(10000000/(bar.close*30)*0.7*0.3)
         self.strategy(bar)
         self.writeCtaLog('posDict:%s'%(self.posDict))
         print('posDict:', self.posDict)
