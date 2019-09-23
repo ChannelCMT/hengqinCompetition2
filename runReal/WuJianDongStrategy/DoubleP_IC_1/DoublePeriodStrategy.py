@@ -16,7 +16,7 @@ class DoublePeriodStrategy(OrderTemplate):
     # 参数列表，保存了参数的名称
     paramList = [
                  # 品种列表
-                 'symbolList', 'lot',
+                 'symbolList',
                  # 时间周期
                  'envPeriod', 'signalPeriod','signal5min',
                 #  总秒，间隔，下单次数
@@ -37,7 +37,7 @@ class DoublePeriodStrategy(OrderTemplate):
                  ]
 
     # 变量列表，保存了变量的名称
-    varList = ['lot']
+    varList = []
     # 同步列表，保存了需要保存到数据库的变量名称
     syncList = ['posDict', 'eveningDict']
 
@@ -97,6 +97,7 @@ class DoublePeriodStrategy(OrderTemplate):
         self.prepare_data()
         self.putEvent()
         # 策略参数
+        self.lot = 0
         self.nPos = 0
         self.stopLossPct = self.paraDict["stopLossPct"]
         self.stoplossPeriod = self.paraDict["stoplossPeriod"]

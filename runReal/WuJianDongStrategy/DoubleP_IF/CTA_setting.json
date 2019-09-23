@@ -32,7 +32,6 @@
     "posTime": 1,
     "addLotTime": 1,
 
-    "lot":1,
     "orderTime":1,
     "totalSecond" :30,
     "stepSecond": 5

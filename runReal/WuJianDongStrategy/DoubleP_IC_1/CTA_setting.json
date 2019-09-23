@@ -2,7 +2,7 @@
     "symbolList": ["C:SIM"],
     "name": "DoublePeriodStrategy",
     "className": "DoublePeriodStrategy",
-    
+
     "envPeriod": "120m", 
     "signalPeriod": "15m",
     "signal5min": "5m",
@@ -33,7 +33,6 @@
     "posTime": 0,
     "addLotTime": 1,
 
-    "lot":100,
     "orderTime":1,
     "totalSecond" :30,
     "stepSecond": 5

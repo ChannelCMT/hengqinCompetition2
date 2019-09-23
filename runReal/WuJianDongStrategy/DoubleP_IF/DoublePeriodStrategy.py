@@ -16,7 +16,7 @@ class DoublePeriodStrategy(OrderTemplate):
     # 参数列表，保存了参数的名称
     paramList = [
                  # 品种列表
-                 'symbolList', 'lot',
+                 'symbolList',
                  # 时间周期
                  'envPeriod', 'signalPeriod','signal5min',
                 #  总秒，间隔，下单次数
@@ -37,7 +37,7 @@ class DoublePeriodStrategy(OrderTemplate):
                  ]
 
     # 变量列表，保存了变量的名称
-    varList = ['lot']
+    varList = []
     # 同步列表，保存了需要保存到数据库的变量名称
     syncList = ['posDict', 'eveningDict']
 
@@ -46,6 +46,7 @@ class DoublePeriodStrategy(OrderTemplate):
         super().__init__(ctaEngine, setting)
         self.paraDict = setting
         self.barPeriod = 200
+        self.lot = 0
         self.symbol = self.symbolList[0]
         self.orderAllList = [] # 记录成交的订单，以获取最新订单信息
         # 实例化信号

@@ -30,8 +30,6 @@
     "lowVolThreshold": 0.003,
 
     "posTime":1,
-    "addPct": 0.01,
-
-    "lot" :10
+    "addPct": 0.01
 }
 ]

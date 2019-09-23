@@ -31,8 +31,6 @@
     "ntrend_Stop_Time": 6,
 
     "Capital": 500000,
-    "lot" : 0.4,
-    "wlot" : 0.3,
     "addTime": 1,
     "addlot": 0.1,
     "addPre": 0.04

@@ -2,7 +2,7 @@
     "symbolList": ["IF:SIM"],
     "name": "SkewBaseStrategy",
     "className": "SkewBaseStrategy",
-    
+
     "capitalRatio":0.273,
 
     "envPeriod": "30m",
@@ -26,7 +26,6 @@
     "posTime": 3,
     "addLotTime": 1,
     
-    "lot": 1,
     "orderTime":1,
     "totalSecond" :30,
     "stepSecond": 5,

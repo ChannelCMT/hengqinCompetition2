@@ -38,8 +38,6 @@ class Price_VolumeStrategy(CtaTemplate):
                  'stoplossPct',
                  # 交易品种
                  'symbolList',
-                 # 交易手数
-                 'lot',
                  # 加仓次数
                  "posTime",
                  # 加仓时机
@@ -47,7 +45,7 @@ class Price_VolumeStrategy(CtaTemplate):
                 ]    
     
     # 变量列表
-    varList = ['transactionPrice']  
+    varList = []  
     
     # 同步列表，保存了需要保存到数据库的变量名称
     syncList = ['posDict', 'eveningDict']
@@ -59,7 +57,7 @@ class Price_VolumeStrategy(CtaTemplate):
         self.paraDict = setting
         self.symbol = self.symbolList[0]
         self.nPos = 0
-
+        self.lot = 0
         self.chartLog = {
                 'datetime':[],
                 'Pup':[],  # 布林线上轨

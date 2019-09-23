@@ -3,17 +3,12 @@
     "name": "hlBreakVfDsStrategy",
     "className": "hlBreakVfDsStrategy",
 
-    "totalCapital":10,
-    "posWeight":1,
-    "pctPerTrade":1,
-    "palValue": 100,
-
-    "orderTime":4,
+    "orderTime":1,
     "totalSecond" :30,
-    "stepSecond": 5,
+    "stepSecond": 1,
     
     "timeframeMap" :
-    {"envPeriod": "30m", "signalPeriod":"15m", "tradePeriod":"1m",
+    {"envPeriod": "30m", "signalPeriod":"15m", "tradePeriod":"5m",
         "filterPeriod": "5m", "addPosPeriod":"5m"},
     
     "adxPeriod": 10,

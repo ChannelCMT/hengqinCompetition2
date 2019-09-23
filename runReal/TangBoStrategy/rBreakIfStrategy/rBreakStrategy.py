@@ -22,8 +22,6 @@ class rBreakStrategy(OrderTemplate):
                  'timeframeMap',
                  #  总秒，间隔，下单次数
                  'totalSecond', 'stepSecond','orderTime',
-                 # 分批进场手数
-                 'lot',
                  # 品种列表
                  'symbolList',
                  # signalParameter 计算信号的参数
@@ -46,6 +44,7 @@ class rBreakStrategy(OrderTemplate):
 
         self.paraDict = setting
         self.barPeriod = 200
+        self.lot = 0
         self.symbol = self.symbolList[0]
         self.lastBarTimeDict = {frameStr: datetime(2010,1,1) for frameStr in list(set(self.timeframeMap.values()))}
         self.algorithm = rBreakSignal()

@@ -1,0 +1,41 @@
+[{
+    "symbolList": ["IF:SIM"],
+    "name": "hlBreakVfDsStrategy",
+    "className": "hlBreakVfDsStrategy",
+
+    "orderTime":1,
+    "totalSecond" :30,
+    "stepSecond": 1,
+    
+    "timeframeMap" :
+    {"envPeriod": "30m", "signalPeriod":"15m", "tradePeriod":"5m",
+        "filterPeriod": "5m", "addPosPeriod":"5m"},
+    
+    "adxPeriod": 10,
+    "adxLowThreshold": 8,
+    "adxHighThreshold": 30,
+    "adxMaxPeriod": 30,
+
+    "hlEntryPeriod": 350,
+    "hlExitPeriod": 80,
+    
+    "volPeriod":50,
+    "lowVolThreshold":0.0012,
+    "highVolThreshold":0.08,
+
+    "lotMultipler": 0.5,
+    "stopControlTime":0,
+    "filterRctV": 0.11,
+    "takeProfitPct": 0.1,
+
+    "dsPeriod": 40,
+    "dsThreshold":0.16,
+    "dsSemaPeriod": 10,
+    "dsLemaPeriod": 40,
+
+    "addPct":0.009,
+    "posTime": 1,
+    "initVar": 0.8,
+    "addVar": 0.5,
+    "sign": "-"
+}]

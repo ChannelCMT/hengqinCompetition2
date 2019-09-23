@@ -7,10 +7,9 @@
     {"signalPeriod":"30m", 
         "filterPeriod": "30m"},
 
-    "lot": 150,
-    "orderTime":4,
+    "orderTime":1,
     "totalSecond" :30,
-    "stepSecond": 5,
+    "stepSecond": 1,
 
     "rangePeriod": 16,
     "breakPct": 0.4,

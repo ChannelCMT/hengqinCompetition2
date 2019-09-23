@@ -47,7 +47,7 @@ class TurningPointStrategy(CtaTemplate):
                 ]    
     
     # 变量列表
-    varList = ['transactionPrice']  
+    varList = []  
     
     # 同步列表，保存了需要保存到数据库的变量名称
     syncList = ['posDict', 'eveningDict']

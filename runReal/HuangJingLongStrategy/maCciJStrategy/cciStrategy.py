@@ -13,8 +13,6 @@ class cciStrategy(OrderTemplate):
 
     # 参数列表，保存了参数的名称
     paramList = [
-                 # 分批进场手数
-                 'lot', 
                  # 品种列表
                  'symbolList',
                  # signalParameter 计算信号的参数
@@ -46,7 +44,7 @@ class cciStrategy(OrderTemplate):
         self.symbol = self.symbolList[0]
         self.lastBarTimeDict = {frameStr: datetime(2010,1,1) for frameStr in list(set(self.timeframeMap.values()))}
         self.algorithm = cciSignal()
-
+        self.lot = 0
         # varialbes
         self.orderDict = {'orderLongSet':set(), 'orderShortSet': set()}
         self.orderLastList = []

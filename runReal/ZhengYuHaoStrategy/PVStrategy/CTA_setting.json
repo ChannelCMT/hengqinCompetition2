@@ -10,7 +10,6 @@
     "STDUP"       : 1,
     "STDDN"       : 1,
     "stoplossPct" : 0.05,
-    "lot"         : 10,
     "posTime"     : 1,
     "addPct"      : 0.01
 }

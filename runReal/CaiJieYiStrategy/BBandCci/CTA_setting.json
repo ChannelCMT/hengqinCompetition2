@@ -2,14 +2,9 @@
     "symbolList": ["IF:SIM"],
     "name": "BBandCciStrategy",
     "className": "BBandCciStrategy",
-    "totalCapital":10,
-    "posWeight": 1,
-    "pctPerTrade":1,
-    "palValue": 100,
-
-    "orderTime":4,
+    "orderTime":1,
     "totalSecond" :30,
-    "stepSecond": 5,
+    "stepSecond": 1,
 
     "timeframeMap":
     {"signalPeriod":"15m"},

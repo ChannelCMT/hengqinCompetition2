@@ -28,7 +28,7 @@ class myStrategy(CtaTemplate):
     'posTime',
     'addPct' 
     ]
-    varList = ['transactionPrice']
+    varList = []
     syncList = ['posDict','eveningDict']
 
     def __init__(self, ctaEngine, setting):

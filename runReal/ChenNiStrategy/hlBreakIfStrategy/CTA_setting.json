@@ -13,7 +13,7 @@
     "stepSecond": 5,
     
     "timeframeMap" :
-    {"envPeriod": "30m", "signalPeriod":"15m", "tradePeriod":"1m",
+    {"envPeriod": "30m", "signalPeriod":"15m", "tradePeriod":"5m",
         "filterPeriod": "5m", "addPosPeriod":"5m"},
     
     "adxPeriod": 10,
@@ -21,8 +21,8 @@
     "adxHighThreshold": 30,
     "adxMaxPeriod": 30,
 
-    "hlEntryPeriod": 340,
-    "hlExitPeriod": 60,
+    "hlEntryPeriod": 400,
+    "hlExitPeriod": 80,
     
     "volPeriod":50,
     "lowVolThreshold":0.0012,

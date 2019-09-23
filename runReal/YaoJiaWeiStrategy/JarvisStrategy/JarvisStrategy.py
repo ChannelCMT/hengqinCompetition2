@@ -22,7 +22,7 @@ class JarvisStrategy(CtaTemplate):
     
      # 参数列表
     paramList = [
-                 'symbolList', 'barPeriod', 'lot',
+                 'symbolList', 'barPeriod',
                  'timeframeMap',
                  'atrPeriod', 'smallAtrTime','bigAtrTime',
                  'fastperiod', 'slowperiod','signalperiod',
@@ -35,7 +35,7 @@ class JarvisStrategy(CtaTemplate):
                 ]    
     
     # 变量列表
-    varList = ['transactionPrice']  
+    varList = []  
     
     # 同步列表，保存了需要保存到数据库的变量名称
     syncList = ['posDict', 'eveningDict']
@@ -49,7 +49,8 @@ class JarvisStrategy(CtaTemplate):
         self.transactionPrice = None # 生成成交价格的字典
         self.trendStatus = None
         self.nPos = 0
-
+        self.lot = 0
+        
         self.chartLog = {
                 'datetime':[],
                 'upperBand':[],

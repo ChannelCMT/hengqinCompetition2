@@ -3,9 +3,9 @@
     "className": "hlBreakStrategy",
     "symbolList": ["IF:SIM"],
 
-    "orderTime":4,
+    "orderTime":1,
     "totalSecond" :30,
-    "stepSecond": 5,
+    "stepSecond": 1,
     
     "timeframeMap" :
     {"signalPeriod":"15m"},

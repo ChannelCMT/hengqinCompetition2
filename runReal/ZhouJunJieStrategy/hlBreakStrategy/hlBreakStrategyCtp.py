@@ -37,7 +37,7 @@ class hlBreakStrategy(OrderTemplate):
                  ]
 
     # 变量列表，保存了变量的名称
-    varList = ['lot']
+    varList = []
     # 同步列表，保存了需要保存到数据库的变量名称
     syncList = ['posDict', 'eveningDict']
 

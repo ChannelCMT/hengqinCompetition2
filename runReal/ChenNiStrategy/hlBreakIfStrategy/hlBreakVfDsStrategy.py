@@ -41,9 +41,7 @@ class hlBreakVfDsStrategy(OrderTemplate):
                  ]
 
     # 变量列表，保存了变量的名称
-    varList = [
-                'nPos'
-               ]
+    varList = []
     # 同步列表，保存了需要保存到数据库的变量名称
     syncList = ['posDict', 'eveningDict']
 
@@ -123,7 +121,7 @@ class hlBreakVfDsStrategy(OrderTemplate):
     def on5MinBar(self, bar):
         # 必须继承父类方法
         super().onBar(bar)
-        self.lot = int(10000000/(bar.close*30)*0.6*0.5)
+        self.lot = int(10000000/(bar.close*30)*0.3*0.5)
         # on bar下触发回测洗价逻辑
         self.checkOnPeriodStart(bar)
         # 定时清除已出场的单
