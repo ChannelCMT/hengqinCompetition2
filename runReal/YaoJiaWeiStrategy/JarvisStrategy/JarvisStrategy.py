@@ -91,9 +91,12 @@ class JarvisStrategy(CtaTemplate):
         """收到行情TICK推送"""
         pass
     
+    def onBar(self, bar):
+        pass
+
     def on5MinBar(self, bar):
         self.strategy(bar)
-        self.lot = int(10000000/(bar.close*30)*0.7)
+        self.lot = int(10000000/(bar.close*30)*0.3)
         self.writeCtaLog('posDict:%s'%(self.posDict))
         print('posDict:', self.posDict)
 

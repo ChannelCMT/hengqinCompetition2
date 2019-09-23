@@ -121,7 +121,7 @@ class cciStrategy(OrderTemplate):
         
     def on5MinBar(self, bar):
         # on bar下触发回测洗价逻辑
-        self.lot = int(10000000/bar.close*0.6*0.5)
+        self.lot = int(10000000/bar.close*0.6*0.3)
         # 定时控制，开始
         self.checkOnPeriodStart(bar)
     # 定时清除已出场的单

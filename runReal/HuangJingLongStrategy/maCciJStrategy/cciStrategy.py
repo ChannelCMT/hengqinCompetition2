@@ -124,7 +124,7 @@ class cciStrategy(OrderTemplate):
         # 定时控制，开始
         self.checkOnPeriodStart(bar)
         # 回测时的下单手数按此方法调整
-        self.lot = int(10000000/(bar.close*5)*0.5*0.5)
+        self.lot = int(10000000/(bar.close*5)*0.5*0.3)
         # 定时清除已出场的单
         self.checkOnPeriodStart(bar)
         self.checkOnPeriodEnd(bar)

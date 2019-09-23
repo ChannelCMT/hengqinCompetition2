@@ -165,10 +165,13 @@ class SimpleStrategy(CtaTemplate):
             self.pre_Env_signal = Env_signal
  
             #self.chartLog['datetime'].append(datetime.strptime(am15.datetime[-1], "%Y%m%d %H:%M:%S"))
-                    
+
+    def onBar(self, bar):
+        pass
+
     def on5MinBar(self, bar):
-        self.lot = int(10000000/(bar.close)*0.6*0.4)
-        self.wlot = int(10000000/(bar.close)*0.6*0.3)
+        self.lot = int(10000000/(bar.close)*0.3*0.4)
+        self.wlot = int(10000000/(bar.close)*0.3*0.3)
         self.strategy(bar)
         self.writeCtaLog('posDict:%s'%(self.posDict))
         print('posDict:', self.posDict)

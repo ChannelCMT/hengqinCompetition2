@@ -121,8 +121,11 @@ class KMAStrategy(CtaTemplate):
             self.entryOrder(bar, entrySig, atr)
             print('entrySig: ', entrySig)
 
+    def onBar(self, bar):
+        pass
+
     def on5MinBar(self, bar):
-        self.lot = int(10000000/(bar.close*100*0.05)*0.5)
+        self.lot = int(10000000/(bar.close*100*0.05)*0.3)
         self.strategy(bar)
         self.writeCtaLog('posDict:%s'%(self.posDict))
         print('posDict:', self.posDict)

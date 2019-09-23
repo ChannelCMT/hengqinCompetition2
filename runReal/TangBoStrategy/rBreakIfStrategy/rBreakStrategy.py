@@ -128,7 +128,7 @@ class rBreakStrategy(OrderTemplate):
     
     def on5MinBar(self, bar):
         super().onBar(bar)
-        self.lot = int(10000000/(bar.close*30)*0.7)
+        self.lot = int(10000000/(bar.close*30)*0.3)
         self.checkOnPeriodStart(bar)
         self.checkOnPeriodEnd(bar)
         for idSet in self.orderDict.values():

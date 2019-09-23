@@ -113,7 +113,7 @@ class hlRegressionStrategy(OrderTemplate):
     def on5MinBar(self, bar):
         # 必须继承父类方法
         super().onBar(bar)
-        self.lot = int(10000000/(bar.close*30)*0.7)
+        self.lot = int(10000000/(bar.close*30)*0.3)
         # on bar下触发回测洗价逻辑
         # start = datetime.now()
             # 定时控制，开始

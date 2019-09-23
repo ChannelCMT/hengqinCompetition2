@@ -23,11 +23,11 @@ if __name__ == '__main__':
     # engine.setDataRange(datetime(2015,8,1), datetime(2017,12,31), datetime(2015,4,20)) # IH/IC
     # engine.setDataRange(datetime(2015,8,1), datetime(2018,7,31), datetime(2015,4,20)) # 
     # 样本外
-    # engine.setDataRange(datetime(2018,1,1), datetime(2019,7,31), datetime(2017,7,1)) 
+    engine.setDataRange(datetime(2018,1,1), datetime(2019,7,31), datetime(2017,7,1)) 
     # engine.setDataRange(datetime(2018,8,1), datetime(2019,7,31), datetime(2017,7,1)) 
     # 全样本
     # engine.setDataRange(datetime(2014,1,1), datetime(2019,7,31), datetime(2013,7,1)) 
-    engine.setDataRange(datetime(2015,8,1), datetime(2019,7,31), datetime(2015,4,20)) # IH/IC
+    # engine.setDataRange(datetime(2015,8,1), datetime(2019,7,31), datetime(2015,4,20)) # IH/IC
     # 分段测试
     # engine.setDataRange(datetime(2014,1,1), datetime(2015,6,30), datetime(2013,7,1)) 
     # engine.setDataRange(datetime(2015,7,1), datetime(2016,12,31), datetime(2015,1,1)) 
@@ -47,7 +47,7 @@ if __name__ == '__main__':
                     "symbol":None,
                     "size" : 200, # 每点价值
                     "priceTick" : 0.2, # 最小价格变动
-                    "rate" : 5/10000, # 单边手续费
+                    "rate" : 2/10000, # 单边手续费
                     "slippage" : 0 # 滑价
                     },] 
 

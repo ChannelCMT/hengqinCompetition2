@@ -1,11 +1,12 @@
 [{
     "symbolList": ["IC:SIM"],
-    "name": "DoublePeriodStrategy_v5",
-    "className": "DoublePeriodStrategy", 
+    "name": "DoublePeriodStrategy",
+    "className": "DoublePeriodStrategy",
+    
     "envPeriod": "120m", 
     "signalPeriod": "10m",
     "signal5min": "5m",
-    "capitalRatio":0.25,
+    "capitalRatio":0.182,
 
     "fastPeriod": 10,
     "fast_slow": 3,
@@ -33,7 +34,7 @@
     "addLotTime": 1,
 
     "lot":100,
-    "orderTime":4,
+    "orderTime":1,
     "totalSecond" :30,
     "stepSecond": 5
 }]

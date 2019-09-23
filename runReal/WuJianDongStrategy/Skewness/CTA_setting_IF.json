@@ -1,0 +1,34 @@
+[{
+    "symbolList": ["IF:SIM"],
+    "name": "SkewBaseStrategy",
+    "className": "SkewBaseStrategy",
+    
+    "capitalRatio":0.273,
+
+    "envPeriod": "30m",
+    "signalPeriod": "10m",
+
+    "volumeMaPeriod" : 40,
+    "volumeStdMultiple":1.5,
+
+    "skewShortPeriod":48,
+    "skewShortThreshold":0,
+
+    "skewLongPeriod":36,
+    "skewLongThreshold_left": 0.4,
+
+    "expectReturn": 0.015,
+    "takeProfitLotRatio": 0.5,
+    "stopLossPct": 0.009,
+    "stoplossPeriod" : 3,
+
+    "addPct": 0.02,
+    "posTime": 3,
+    "addLotTime": 1,
+    
+    "lot": 1,
+    "orderTime":1,
+    "totalSecond" :30,
+    "stepSecond": 5,
+    "stopControlTime":1
+}]

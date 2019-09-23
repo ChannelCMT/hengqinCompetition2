@@ -26,8 +26,9 @@ class skewBaseSignal():
         volumeMaPeriod = paraDict['volumeMaPeriod']
         volumeStdMultiple = paraDict['volumeStdMultiple']
         volumeUpper, _, _ = ta.BBANDS(am.volume[:-1], volumeMaPeriod, volumeStdMultiple, volumeStdMultiple)
-        volumeSpike = 1 if ta.MA(am.volume, 3)[-1]>=volumeUpper[-1] else 0
-        return volumeSpike, volumeUpper
+        maVol = ta.MA(am.volume, 3)
+        volumeSpike = 1 if maVol[-1]>=volumeUpper[-1] else 0
+        return volumeSpike, volumeUpper, maVol
 
     def skewLongCal(self, am, paraDict):
         skewPeriod = paraDict['skewLongPeriod']

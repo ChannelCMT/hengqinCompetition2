@@ -44,10 +44,12 @@ class dpSignal():
         if ExitSignal: # 获取平仓信号
             "金叉平空仓，死叉平多仓"
             # if goldenCross:
-            if goldenCross or (sma[-1]>lma[-1] and sma[-1]>sma[-2]):
+            # if goldenCross or (sma[-1]>lma[-1] and sma[-1]>sma[-2]):
+            if goldenCross:
                 maCrossSignal = 1
             # elif deathCross:
-            elif deathCross or (sma[-1]<lma[-1] and sma[-1]<sma[-2]):
+            # elif deathCross or (sma[-1]<lma[-1] and sma[-1]<sma[-2]):
+            elif deathCross:
                 maCrossSignal = -1
         else: # 获取开仓信号
             "金叉或新高开多仓; 死叉或新低开空仓"

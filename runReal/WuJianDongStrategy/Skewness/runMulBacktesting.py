@@ -21,9 +21,9 @@ if __name__ == '__main__':
     # 样本内
     # engine.setDataRange(datetime(2014,1,1), datetime(2017,12,31), datetime(2013,7,1)) 
     # 样本外
-    # engine.setDataRange(datetime(2018,1,1), datetime(2019,7,31), datetime(2017,7,1)) 
+    engine.setDataRange(datetime(2018,1,1), datetime(2019,7,31), datetime(2017,7,1)) 
     # 全样本
-    engine.setDataRange(datetime(2014,1,1), datetime(2019,7,31), datetime(2013,7,1)) 
+    # engine.setDataRange(datetime(2014,1,1), datetime(2019,7,31), datetime(2013,7,1)) 
     # 简单测试
     # engine.setDataRange(datetime(2018,3,23), datetime(2019,3,22), datetime(2017,5,1)) # 测试用
 
@@ -35,12 +35,12 @@ if __name__ == '__main__':
     print(setting)
 
     # 设置产品相关参数
-    engine.setCapital(1000000)  # 设置起始资金，默认值是1,000,000
+    engine.setCapital(10000000)  # 设置起始资金，默认值是1,000,000
     contracts = [{
-                    "symbol":None,
+                    "symbol":'IF:CTP',
                     "size" : 300, # 每点价值
                     "priceTick" : 0.2, # 最小价格变动
-                    "rate" : 5/10000, # 单边手续费
+                    "rate" : 2/10000, # 单边手续费
                     "slippage" : 0 # 滑价
                     },] 
 
@@ -68,7 +68,7 @@ if __name__ == '__main__':
         engine.runBacktesting()
         
         # 显示回测结果
-        showFigture = True
+        showFigture = 1
         if showFigture == True:
             engine.showBacktestingResult()
             engine.showDailyResult()
@@ -79,18 +79,17 @@ if __name__ == '__main__':
         
         # # ### 画图分析
         # try:
-        #     del engine.strategy.chartLog['HigherAfterEntry'][0]
-        #     del engine.strategy.chartLog['LowerAfterEntry'][0]
         #     chartLog = pd.DataFrame(engine.strategy.chartLog).set_index('datetime', drop=False)
-        #     # chartLog['skewThreshold_left'] = -setting['skewThreshold_left']
+        #     chartLog['SkewLongThreshold'] = setting['skewLongThreshold_left']
+        #     chartLog['-SkewLongThreshold'] = -chartLog['SkewLongThreshold']
         #     # chartLog['skewThreshold_right'] = setting['skewThreshold_right']
-        #     print(chartLog.describe()) # 查看信号分布
+        #     # print(chartLog.describe()) # 查看信号分布
         #     mp = htmlplot.getXMultiPlot(engine, freq="5m")
-        #     mp.addLine(line=chartLog[['HigherAfterEntry','LowerAfterEntry','close']].reset_index(), colors={'HigherAfterEntry':'orange','LowerAfterEntry':'orange','close':'cyan'}, pos=0)
-        #     # mp.addLine(line=chartLog[['envMa','skew','skewThreshold_left','skewThreshold_right']].reset_index(), 
-        #     # colors={'envMa':"green", 'skew':'blue','skewThreshold_left':'red','skewThreshold_right':'red'}, pos=1)
-        #     # mp.addVBar(vbar=chartLog[['datetime','volume']], colors={'volume':'blue'}, pos=2)
-        #     # mp.addLine(line=chartLog[['volumeUpper']].reset_index(), colors={'volumeUpper':'green'}, pos=2)
+        #     mp.addLine(line=chartLog[['HigherAfterEntry','LowerAfterEntry']].reset_index(), colors={'HigherAfterEntry':'orange','LowerAfterEntry':'orange'}, pos=0)
+        #     mp.addLine(line=chartLog[['shortSkew','longSkew','SkewLongThreshold','-SkewLongThreshold']].reset_index(), 
+        #     colors={'shortSkew':"green", 'longSkew':'blue','SkewLongThreshold':'red','-SkewLongThreshold':'red'}, pos=1)
+        #     # mp.addVBar(vbar=chartLog[['datetime','maVolume']], colors={'maVolume':'blue'}, pos=2)
+        #     mp.addLine(line=chartLog[['maVolume','volumeUpper']].reset_index(), colors={'maVolume':'blue','volumeUpper':'green'}, pos=2)
         #     mp.resample()
         #     mp.show()
 
