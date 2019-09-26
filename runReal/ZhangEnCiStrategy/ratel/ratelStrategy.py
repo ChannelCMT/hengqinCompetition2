@@ -130,6 +130,10 @@ class ratelStrategy(OrderTemplate):
         # 执行策略逻辑
         self.strategy(bar)
 
+    def on15MinBar(self, bar):
+        self.writeCtaLog('orderDict:%s'%(self.orderDict))
+        self.writeCtaLog('barClose%s'%(bar.close))
+
     def strategy(self, bar):
         signalPeriod= self.timeframeMap["signalPeriod"]
         # 根据出场信号出场

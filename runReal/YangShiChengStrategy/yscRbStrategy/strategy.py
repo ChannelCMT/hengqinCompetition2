@@ -174,7 +174,7 @@ class SimpleStrategy(CtaTemplate):
         self.wlot = int(10000000/(bar.close)*0.3*0.3)
         self.strategy(bar)
         self.writeCtaLog('posDict:%s'%(self.posDict))
-        print('posDict:', self.posDict)
+        self.writeCtaLog('barClose%s'%(bar.close))
 
     def entrySignal(self, am):
         pass

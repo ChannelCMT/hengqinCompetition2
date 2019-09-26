@@ -83,7 +83,7 @@ class myStrategy(CtaTemplate):
     def on5MinBar(self, bar):
         self.lot = int(10000000/(bar.close)*0.3)
         self.writeCtaLog('posDict:%s'%(self.posDict))
-        # print('posDict:', self.posDict)
+        self.writeCtaLog('barClose:%s'%(bar.close))
 
     def on15MinBar(self,bar):
         self.strategy(bar)

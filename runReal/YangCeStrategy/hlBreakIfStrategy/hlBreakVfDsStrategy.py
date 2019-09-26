@@ -132,12 +132,11 @@ class hlBreakVfDsStrategy(OrderTemplate):
         self.strategy(bar)
 
     def on15MinBar(self, bar):
-        engineType = self.getEngineType()  # 判断engine模式
-        if engineType != 'backtesting':
-            longVolume = self.getHoldVolume(self.orderDict['orderFirstLongSet'])+self.getHoldVolume(self.orderDict['orderSecondLongSet'])+self.getHoldVolume(self.orderDict['addLongSet'])
-            shortVolume = self.getHoldVolume(self.orderDict['orderFirstShortSet'])+self.getHoldVolume(self.orderDict['orderSecondShortSet'])+self.getHoldVolume(self.orderDict['addShortSet'])
-            self.writeCtaLog('globalStatus%s'%(self.globalStatus))
-            self.writeCtaLog('longVolume:%s, shortVolume:%s'%(longVolume, shortVolume))
+        longVolume = self.getHoldVolume(self.orderDict['orderFirstLongSet'])+self.getHoldVolume(self.orderDict['orderSecondLongSet'])+self.getHoldVolume(self.orderDict['addLongSet'])
+        shortVolume = self.getHoldVolume(self.orderDict['orderFirstShortSet'])+self.getHoldVolume(self.orderDict['orderSecondShortSet'])+self.getHoldVolume(self.orderDict['addShortSet'])
+        self.writeCtaLog('globalStatus%s'%(self.globalStatus))
+        self.writeCtaLog('longVolume:%s, shortVolume:%s'%(longVolume, shortVolume))
+        self.writeCtaLog('barClose%s'%(bar.close))
 
     def strategy(self, bar):
         envPeriod= self.timeframeMap["envPeriod"]

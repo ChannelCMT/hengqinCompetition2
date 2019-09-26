@@ -171,6 +171,10 @@ class hlBreakStrategy(OrderTemplate):
             # self.moveStopLoss(bar, idSet)
         # 执行策略逻辑
         self.strategy(bar)
+    
+    def on15MinBar(self, bar):
+        self.writeCtaLog('posDict:%s'%(self.posDict))
+        self.writeCtaLog('barClose%s'%(bar.close))
 
     def strategy(self, bar):
         signalPeriod= self.timeframeMap["signalPeriod"]

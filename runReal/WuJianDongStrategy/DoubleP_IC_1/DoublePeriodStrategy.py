@@ -192,6 +192,10 @@ class DoublePeriodStrategy(OrderTemplate):
             self.lot = self.lotDecide(bar, allCapital=10000000) # 通过API获取总资金量代替
             self.takeProfitLot = max(int(self.paraDict["takeProfitLotRatio"]*self.lot), 1) # 止盈单下单量
             self.strategy(bar)
+    
+    def on15MinBar(self, bar):
+        self.writeCtaLog('orderDict:%s'%(self.orderDict))
+        self.writeCtaLog('barClose:%s'%(bar.close))
 
     #---------------------------------------策略主体---------------------------------------
     def strategy(self, bar):

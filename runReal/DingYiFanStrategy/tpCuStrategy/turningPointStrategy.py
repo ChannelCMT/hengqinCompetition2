@@ -148,7 +148,7 @@ class TurningPointStrategy(CtaTemplate):
         self.lot = int(10000000/(bar.close*5*0.09)*0.3*0.25)
         self.strategy(bar)
         self.writeCtaLog('posDict:%s'%(self.posDict))
-        print('posDict:', self.posDict)
+        self.writeCtaLog('barClose:%s'%(bar.close))
 
     def exitSignal(self, exitPeriod, ot_pos):
         arrayPrepared, am = self.arrayPrepared(exitPeriod)

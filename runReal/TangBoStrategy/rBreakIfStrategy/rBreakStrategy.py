@@ -140,8 +140,8 @@ class rBreakStrategy(OrderTemplate):
         if engineType != 'backtesting':
             self.writeCtaLog('globalStatus%s'%(self.globalStatus))
             self.writeCtaLog('firstVolume:%s, secondVolume:%s'%(self.getHoldVolume(self.orderDict['orderLongSet']), self.getHoldVolume(self.orderDict['orderShortSet'])))
-        else:
-            pass
+            self.writeCtaLog('barClose:%s'%(bar.close))
+        
     def strategy(self, bar):
         signalPeriod= self.timeframeMap["signalPeriod"]
 

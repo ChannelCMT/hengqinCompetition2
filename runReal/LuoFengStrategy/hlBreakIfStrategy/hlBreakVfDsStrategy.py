@@ -138,7 +138,8 @@ class hlBreakVfDsStrategy(OrderTemplate):
             shortVolume = self.getHoldVolume(self.orderDict['orderFirstShortSet'])+self.getHoldVolume(self.orderDict['orderSecondShortSet'])+self.getHoldVolume(self.orderDict['addShortSet'])
             self.writeCtaLog('globalStatus%s'%(self.globalStatus))
             self.writeCtaLog('longVolume:%s, shortVolume:%s'%(longVolume, shortVolume))
-
+            self.writeCtaLog('barClose:%s'%(bar.close))
+    
     def strategy(self, bar):
         envPeriod= self.timeframeMap["envPeriod"]
         filterPeriod= self.timeframeMap["filterPeriod"]

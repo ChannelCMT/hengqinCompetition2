@@ -130,8 +130,7 @@ class hlRegressionStrategy(OrderTemplate):
     def on15MinBar(self, bar):
         self.writeCtaLog('globalStatus%s'%(self.globalStatus))
         self.writeCtaLog('longVolume:%s, shortVolume:%s'%(self.getHoldVolume(self.orderDict['orderLongSet']), self.getHoldVolume(self.orderDict['orderShortSet'])))
-        self.notifyPosition('longVolume', self.getHoldVolume(self.orderDict['orderLongSet']), self.author)
-        self.notifyPosition('shortVolume', self.getHoldVolume(self.orderDict['orderShortSet']), self.author)
+        self.writeCtaLog('barClose:%s'%(bar.close))
 
     def strategy(self, bar):
         filterPeriod= self.timeframeMap["filterPeriod"]

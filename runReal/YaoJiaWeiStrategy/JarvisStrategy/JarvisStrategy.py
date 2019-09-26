@@ -99,8 +99,7 @@ class JarvisStrategy(CtaTemplate):
         self.strategy(bar)
         self.lot = int(10000000/(bar.close*30)*0.3)
         self.writeCtaLog('posDict:%s'%(self.posDict))
-        print('posDict:', self.posDict)
-
+        self.writeCtaLog('barClose%s'%(bar.close))
 
     def strategy(self, bar):
         signalPeriod= self.timeframeMap["signalPeriod"]

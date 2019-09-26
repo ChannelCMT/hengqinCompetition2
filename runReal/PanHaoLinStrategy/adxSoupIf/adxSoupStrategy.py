@@ -139,8 +139,7 @@ class adxSoupStrategy(OrderTemplate):
             shortVolume = self.getHoldVolume(self.orderDict['order1ShortSet'])+self.getHoldVolume(self.orderDict['order2ShortSet'])
             self.writeCtaLog('globalStatus%s'%(self.globalStatus))
             self.writeCtaLog('longVolume:%s, shortVolume:%s'%(longVolume, shortVolume))
-            self.notifyPosition('longVolume', longVolume, self.author)
-            self.notifyPosition('shortVolume', shortVolume, self.author)
+            self.writeCtaLog('barClose:%s'%(bar.close))
 
     def strategy(self, bar):
         trendPeriod= self.timeframeMap["trendPeriod"]

@@ -1,5 +1,5 @@
 [{
-    "symbolList": ["C:SIM"],
+    "symbolList": ["IC:SIM"],
     "name": "DoublePeriodStrategy",
     "className": "DoublePeriodStrategy",
 

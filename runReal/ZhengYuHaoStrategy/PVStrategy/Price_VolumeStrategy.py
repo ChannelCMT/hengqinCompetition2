@@ -133,12 +133,10 @@ class Price_VolumeStrategy(CtaTemplate):
         self.addPosOrder(bar)
     
     def on5MinBar(self, bar):
-        super().onBar(bar)
         self.lot = int(10000000/(bar.close*30)*0.3)
         self.strategy(bar)
         self.writeCtaLog('posDict:%s'%(self.posDict))
-        print('posDict:', self.posDict)
-
+        self.writeCtaLog('barClose%s'%(bar.close))
     
     # 出场信号
     def exitSignal(self, signalPeriod):
