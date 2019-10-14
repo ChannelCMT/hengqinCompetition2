@@ -132,6 +132,9 @@ class Price_VolumeStrategy(CtaTemplate):
         # 加仓
         self.addPosOrder(bar)
     
+    def onBar(self, bar):
+        pass
+
     def on5MinBar(self, bar):
         self.lot = int(10000000/(bar.close*30)*0.3)
         self.strategy(bar)
