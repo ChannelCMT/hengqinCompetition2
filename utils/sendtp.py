@@ -29,8 +29,8 @@ HEADERS = {
     "Content-Type": "application/json"
 }
 
-GATEWAY = os.environ.get("GATEWAY_HOST", "http://218.17.157.200:18057/api")
-TOKEN = os.environ.get("TOKEN", "ae3e0db3-95b8-4bea-ad7c-64c89eea583f")
+GATEWAY = os.environ.get("GATEWAY_HOST", "http://40.73.99.45:18057/api")
+TOKEN = os.environ.get("TOKEN", "")
 MONGODB_HOST = os.environ.get("MONGODB_HOST", "172.16.11.81")
 STRATEGY = os.environ.get("STRATEGY_COL", "HENGQIN.strategy")
 DOMINANTS = os.environ.get("DOMINANT_COL", "VnTrader_1Min_Db_contest.dominants")
@@ -85,12 +85,16 @@ def makeTargetPosition(doc):
     return tp
 
 
+import json
+
+
 def sendRequest(payload):
-    logging.warning(f"Send payload: {payload}")
+    data = json.dumps(payload)
+    logging.warning(f"Send payload: {data}")
     r = requests.post(
         GATEWAY,
         headers=HEADERS,
-        data=payload
+        data=data
     )
     logging.warning(f"Post response: [{r.status_code}] {r.text}")
 
@@ -114,7 +118,7 @@ def isTradeTime():
 
 def get_hq_id(name):
     author, strategy = name.split("_", 1)
-    return strategy_ids[author]
+    return strategy_ids.get(author, None)
 
     
 def routing():
@@ -124,6 +128,9 @@ def routing():
     records = {}
     for strategy in read_strategy(client):
         hqid = get_hq_id(strategy["strategyId"])
+        if not hqid:
+            print(f"StrategyId: {strategy['strategyId']} not found.")
+            continue 
         positions = records.setdefault(hqid, {})
         for symbol, pos in strategy["positions"].items():
             position = positions.setdefault(symbol, {})
