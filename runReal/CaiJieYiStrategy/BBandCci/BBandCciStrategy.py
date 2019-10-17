@@ -116,18 +116,16 @@ class BBandCciStrategy(OrderTemplate):
         self.lot = int(10000000/(bar.close*30)*0.3)
         # on bar下触发回测洗价逻辑
         # start = datetime.now()
-        engineType = self.getEngineType()  # 判断engine模式
-        if engineType == 'backtesting': # 回测时下单手数设置的是一次下多少个币，实盘需要根据情况转化为合约张数
-            # 定时控制，开始
-            self.checkOnPeriodStart(bar)
-            # 实盘下单手数按此方法调整
-            self.checkOnPeriodEnd(bar)
-            # 定时清除已出场的单
-            for idSet in self.orderDict.values():
-                self.delOrderID(idSet)
-            # 执行策略逻辑
-            self.strategy(bar)
-            # print('debug',(datetime.now()-start).total_seconds())
+        # 定时控制，开始
+        self.checkOnPeriodStart(bar)
+        # 实盘下单手数按此方法调整
+        self.checkOnPeriodEnd(bar)
+        # 定时清除已出场的单
+        for idSet in self.orderDict.values():
+            self.delOrderID(idSet)
+        # 执行策略逻辑
+        self.strategy(bar)
+        # print('debug',(datetime.now()-start).total_seconds())
 
     def on15MinBar(self, bar):
         self.writeCtaLog('globalStatus%s'%(self.globalStatus))
