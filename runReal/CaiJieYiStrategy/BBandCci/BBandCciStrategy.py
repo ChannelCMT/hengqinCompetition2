@@ -132,6 +132,7 @@ class BBandCciStrategy(OrderTemplate):
     def on15MinBar(self, bar):
         self.writeCtaLog('globalStatus%s'%(self.globalStatus))
         self.writeCtaLog('longVolume:%s, shortVolume:%s'%(self.getHoldVolume(self.orderDict['orderLongSet']), self.getHoldVolume(self.orderDict['orderShortSet'])))
+        self.writeCtaLog('barClose:%s'%(bar.close))
 
     def strategy(self, bar):
         signalPeriod= self.timeframeMap["signalPeriod"]
