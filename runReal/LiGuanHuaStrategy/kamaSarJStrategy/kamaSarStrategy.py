@@ -190,9 +190,9 @@ class kamaSarStrategy(OrderTemplate):
     def entrySignal(self, filterPeriod, signalPeriod):
         entrySignal = 0
         arrayPrepared, amSignal = self.arrayPrepared(signalPeriod)
-        amSignalDatetime = datetime.strptime(amSignal.datetime[-1], "%Y%m%d %H:%M:%S")
 
         if arrayPrepared:
+            amSignalDatetime = datetime.strptime(amSignal.datetime[-1], "%Y%m%d %H:%M:%S")
             if amSignalDatetime>self.lastBarTimeDict[signalPeriod]:
                 self.kamaDirection, kama, sma = self.algorithm.kamaSignal(amSignal, self.paraDict)
                 self.lastBarTimeDict[signalPeriod] = amSignalDatetime
