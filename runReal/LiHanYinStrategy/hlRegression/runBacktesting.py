@@ -18,12 +18,13 @@ if __name__ == '__main__':
     # 设置回测用的数据起始日期，initHours 默认值为 0
     # engine.setDataRange(datetime(2014,6,1), datetime(2017,12,31), datetime(2014,1,1))
     # engine.setDataRange(datetime(2018,1,1), datetime(2019,8,31), datetime(2017,6,1))
-    engine.setDataRange(datetime(2019,6,1), datetime(2019,8,31), datetime(2019,1,1))
+    # engine.setDataRange(datetime(2019,6,1), datetime(2019,8,31), datetime(2019,1,1))
+    engine.setDataRange(datetime(2019,10,1), datetime(2020,1,16), datetime(2018,9,1))
 
 # 设置产品相关参数
-    engine.setCapital(10)  # 设置起始资金，默认值是1,000,000
+    engine.setCapital(10000000)  # 设置起始资金，默认值是1,000,000
     contracts = [{
-                    "symbol":"IF:CTP",
+                    "symbol":"IF88:CTP",
                     "size" : 1, # 每点价值
                     "priceTick" : 0.001, # 最小价格变动
                     "rate" : 8/10000, # 单边手续费
@@ -32,7 +33,7 @@ if __name__ == '__main__':
 
     engine.setContracts(contracts)
     # engine.setLog(True, "./inSample")
-    engine.setLog(True, "./allSample")
+    engine.setLog(True, "./outSample")
 
     path = os.path.split(os.path.realpath(__file__))[0]
     with open(path+"//CTA_setting.json") as parameterDict:

@@ -31,12 +31,12 @@ if __name__ == '__main__':
     # engine.setStartDate('20180202 10:00:00',initHours=10)
     # engine.setStartDate('20181130 10:00:00',initHours=10)
     #engine.setEndDate('20190325 23:00:00')
-    engine.setDataRange(datetime(2019,6,1),datetime(2019,7,31),datetime(2019,1,1))
+    engine.setDataRange(datetime(2019,10,1), datetime(2020,1,16), datetime(2018,9,1))
 
     # 设置产品相关参数
-    engine.setCapital(1000000)  # 设置起始资金，默认值是1,000,000
+    engine.setCapital(10000000)  # 设置起始资金，默认值是1,000,000
     contracts = [{
-                    "symbol":"IF:CTP",
+                    "symbol":"IF88:CTP",
                     "size" : 1, # 每点价值
                     "priceTick" : 0.01, # 最小价格变动
                     "rate" : 5/10000, # 单边手续费
@@ -47,7 +47,7 @@ if __name__ == '__main__':
     engine.setLog(True, "./logIF")
     # 获取当前绝对路径
     path = os.path.split(os.path.realpath(__file__))[0]
-    with open(path+"//myCTA_setting.json") as f:
+    with open(path+"//CTA_setting.json") as f:
         setting = json.load(f)[0]
 
     # Bar回测

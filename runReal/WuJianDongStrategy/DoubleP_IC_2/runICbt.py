@@ -7,23 +7,25 @@ from vnpy.trader.utils import htmlplot
 import json
 import os
 from datetime import datetime
-from DoublePeriodStrategy_v5 import DoublePeriodStrategy
+from DoublePeriodStrategy import DoublePeriodStrategy
 
 # 
 if __name__ == '__main__':
     # 创建回测引擎
     engine = BacktestingEngine()
-    engine.setDB_URI("mongodb://localhost:27017")
+    engine.setDB_URI("mongodb://172.16.11.81:27017")
 
     # Bar回测
     engine.setBacktestingMode(engine.BAR_MODE)
-    engine.setDatabase('VnTrader_1Min_Db')
+    engine.setDatabase('VnTrader_1Min_Db_contest')
+    engine.setDataRange(datetime(2019,10,1), datetime(2020,1,16), datetime(2018,9,1))
+
     # 样本内
     # engine.setDataRange(datetime(2014,1,1), datetime(2017,12,31), datetime(2013,7,1)) 
     # engine.setDataRange(datetime(2015,8,1), datetime(2017,12,31), datetime(2015,4,20)) # IH/IC
     # engine.setDataRange(datetime(2015,8,1), datetime(2018,7,31), datetime(2015,4,20)) # 
     # 样本外
-    engine.setDataRange(datetime(2018,1,1), datetime(2019,7,31), datetime(2017,7,1)) 
+    # engine.setDataRange(datetime(2018,1,1), datetime(2019,7,31), datetime(2017,7,1)) 
     # engine.setDataRange(datetime(2018,8,1), datetime(2019,7,31), datetime(2017,7,1)) 
     # 全样本
     # engine.setDataRange(datetime(2014,1,1), datetime(2019,7,31), datetime(2013,7,1)) 
@@ -37,7 +39,7 @@ if __name__ == '__main__':
     # 获取当前绝对路径
     path = os.path.split(os.path.realpath(__file__))[0]
     # with open(path+"//CTA_setting IF2.json") as f:
-    with open(path+"//CTA_setting_IC_v2.json") as f:
+    with open(path+"//CTA_setting.json") as f:
         setting = json.load(f)[0]
     print(setting)
 
@@ -53,7 +55,7 @@ if __name__ == '__main__':
 
     multiSymbolList = [
                     # 'IF:CTP',
-                    'IC:CTP',
+                    'IC88:CTP',
                     # 'RB:CTP',
                     # 'M:CTP',
                     # 'J:CTP'

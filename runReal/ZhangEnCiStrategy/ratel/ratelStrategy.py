@@ -191,12 +191,12 @@ class ratelStrategy(OrderTemplate):
             if item ==1:
                 if (not (self.orderDict['orderLongSet%s'%index])) and (not (self.orderDict['orderShortSet%s'%index])):
                     # 限时下单
-                    for orderID in self.timeLimitOrder(ctaBase.CTAORDER_BUY, self.symbol, buyExecute, int(self.lot/self.strategyNumbers), 120).vtOrderIDs:
+                    for orderID in self.timeLimitOrder(ctaBase.CTAORDER_BUY, self.symbol, buyExecute, max(int(self.lot/self.strategyNumbers),1), 120).vtOrderIDs:
                         self.orderDict['orderLongSet%s'%index].add(orderID)
 
             elif item ==-1:
                 if (not (self.orderDict['orderLongSet%s'%index])) and (not (self.orderDict['orderShortSet%s'%index])):
-                    for orderID in self.timeLimitOrder(ctaBase.CTAORDER_SHORT, self.symbol, shortExecute, int(self.lot/self.strategyNumbers), 120).vtOrderIDs:
+                    for orderID in self.timeLimitOrder(ctaBase.CTAORDER_SHORT, self.symbol, shortExecute, max(int(self.lot/self.strategyNumbers),1), 120).vtOrderIDs:
                         self.orderDict['orderShortSet%s'%index].add(orderID)
 
  # ----------------------------------------------------------------------

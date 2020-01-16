@@ -12,7 +12,7 @@ from datetime import datetime
 # 
 if __name__ == '__main__':
     #设定回测品种 btc.usd.q:okef IF88:CTP
-    symbolName="J:CTP"
+    symbolName="J88:CTP"
     
 
     # 创建回测引擎
@@ -38,7 +38,8 @@ if __name__ == '__main__':
     #engine.setDataRange(datetime(2016,1,1),datetime(2017,12,31),datetime(2015,7,1))
     #engine.setDataRange(datetime(2014,1,1),datetime(2017,12,31),datetime(2013,7,1))
     #engine.setDataRange(datetime(2018,1,1),datetime(2019,7,31),datetime(2017,7,1))
-    engine.setDataRange(datetime(2019,4,1),datetime(2019,7,31),datetime(2018,7,1))
+    engine.setDataRange(datetime(2019,10,1), datetime(2020,1,16), datetime(2018,9,1))
+
 
     # 设置产品相关参数
     engine.setCapital(10000000)  # 设置起始资金，默认值是1,000,000

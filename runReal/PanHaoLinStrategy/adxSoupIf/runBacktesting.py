@@ -22,13 +22,13 @@ if __name__ == '__main__':
     # engine.setDatabase('VnTrader_1Min_Db', 'VnTrader_Tick_Db')
 
     # 设置回测用的数据起始日期，initHours 默认值为 0
-    engine.setDataRange(datetime(2019,6,1), datetime(2019,8,22), datetime(2018,6,1))
+    engine.setDataRange(datetime(2019,10,1), datetime(2020,1,16), datetime(2018,9,1))
 
 
     # 设置产品相关参数
     engine.setCapital(1000000)  # 设置起始资金，默认值是1,000,000
     contracts = [{
-                    "symbol":"IF:CTP",
+                    "symbol":"IF88:CTP",
                     "size" : 1, # 每点价值
                     "priceTick" : 0.001, # 最小价格变动
                     "rate" : 5/10000, # 单边手续费

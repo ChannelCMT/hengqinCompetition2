@@ -30,13 +30,13 @@ if __name__ == '__main__':
     # engine.setDataRange(datetime(2017,12,31), datetime(2019,8,2), datetime(2016,6,3))
     # engine.setDataRange(datetime(2016,8,1), datetime(2019,8,2), datetime(2015,11,4))
     # engine.setDataRange(datetime(2014,2,18), datetime(2019,8,2), datetime(2013,11,4))
-    engine.setDataRange(datetime(2019,2,18), datetime(2019,8,2), datetime(2018,11,4))
+    engine.setDataRange(datetime(2019,10,1), datetime(2020,1,16), datetime(2018,9,1))
 
 
     # 设置产品相关参数
     engine.setCapital(1000000)  # 设置起始资金，默认值是1,000,000
     contracts = [{
-                    "symbol":"IF:CTP",
+                    "symbol":"J88:CTP",
                     "size" : 1, # 每点价值
                     "priceTick" : 0.01, # 最小价格变动
                     "rate" : 5/10000, # 单边手续费
